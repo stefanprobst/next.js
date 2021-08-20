@@ -95,6 +95,7 @@ Next.js provides an ESLint plugin, [`eslint-plugin-next`](https://www.npmjs.com/
 | ✔️  | [next/no-title-in-document-head](https://nextjs.org/docs/messages/no-title-in-document-head)   | Disallow using &lt;title&gt; with Head from next/document                                                                    |
 | ✔️  | [next/no-unwanted-polyfillio](https://nextjs.org/docs/messages/no-unwanted-polyfillio)         | Prevent duplicate polyfills from Polyfill.io                                                                                 |
 | ✔️  | [next/inline-script-id](https://nextjs.org/docs/messages/inline-script-id)                     | Enforce id attribute on next/script components with inline content                                                           |
+| ✔️  | [next/meta-has-key-prop](https://nextjs.org/docs/messages/meta-has-key-prop)                   | Suggest adding `key` prop on `meta` tags to avoid duplicate tags                                                             |
 | ✔️  | next/no-typos                                                                                  | Ensure no typos were made declaring [Next.js's data fetching function](https://nextjs.org/docs/basic-features/data-fetching) |
 | ✔️  | [next/next-script-for-ga](https://nextjs.org/docs/messages/next-script-for-ga)                 | Use the Script component to defer loading of the script until necessary.                                                     |
 

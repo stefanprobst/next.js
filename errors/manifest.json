@@ -229,6 +229,10 @@
           "path": "/errors/minification-disabled.md"
         },
         {
+          "title": "meta-has-key-prop",
+          "path": "/errors/meta-has-key-prop.md"
+        },
+        {
           "title": "missing-document-component",
           "path": "/errors/missing-document-component.md"
         },
