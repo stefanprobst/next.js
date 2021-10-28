@@ -40,6 +40,7 @@ const nextLint: cliCommand = async (argv) => {
     // Types
     '--help': Boolean,
     '--base-dir': String,
+    '--paths': Boolean,
     '--dir': [String],
     '--file': [String],
     '--strict': Boolean,
@@ -92,7 +93,7 @@ const nextLint: cliCommand = async (argv) => {
         If not configured, ESLint will be set up for the first time.
 
       Usage
-        $ next lint <baseDir> [options]      
+        $ next lint <baseDir> [options]
 
       <baseDir> represents the directory of the Next.js application.
       If no directory is provided, the current directory will be used.
@@ -142,7 +143,9 @@ const nextLint: cliCommand = async (argv) => {
     )
   }
 
-  const baseDir = getProjectDir(args._[0])
+  const baseDir = getProjectDir(
+    args['--paths'] ? args['--base-dir'] : args._[0]
+  )
 
   // Check if the provided directory exists
   if (!existsSync(baseDir)) {
@@ -151,12 +154,16 @@ const nextLint: cliCommand = async (argv) => {
 
   const nextConfig = await loadConfig(PHASE_PRODUCTION_BUILD, baseDir)
 
-  const files: string[] = args['--file'] ?? []
-  const dirs: string[] = args['--dir'] ?? nextConfig.eslint?.dirs
-  const filesToLint = [...(dirs ?? []), ...files]
+  const filesToLint = [
+    ...(args['--file'] ?? []),
+    ...(args['--dir'] ?? []),
+    ...(args['--paths'] ? args._ : []),
+  ]
 
   const pathsToLint = (
-    filesToLint.length ? filesToLint : ESLINT_DEFAULT_DIRS
+    filesToLint.length
+      ? filesToLint
+      : nextConfig.eslint?.dirs ?? ESLINT_DEFAULT_DIRS
   ).reduce((res: string[], d: string) => {
     const currDir = join(baseDir, d)
     if (!existsSync(currDir)) return res
