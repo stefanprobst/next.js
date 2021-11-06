@@ -8,6 +8,80 @@
   "bugs": "https://github.com/vercel/next.js/issues",
   "homepage": "https://nextjs.org",
   "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts"
+    },
+    "./app": {
+      "types": "./app.d.ts",
+      "default": "./app.js"
+    },
+    "./babel": {
+      "types": "./babel.d.ts",
+      "default": "./babel.js"
+    },
+    "./client": {
+      "types": "./client.d.ts",
+      "default": "./client.js"
+    },
+    "./config": {
+      "types": "./config.d.ts",
+      "default": "./config.js"
+    },
+    "./constants": {
+      "types": "./constants.d.ts",
+      "default": "./constants.js"
+    },
+    "./data": {
+      "types": "./data.d.ts",
+      "default": "./data.js"
+    },
+    "./document": {
+      "types": "./document.d.ts",
+      "default": "./document.js"
+    },
+    "./dynamic": {
+      "types": "./dynamic.d.ts",
+      "default": "./dynamic.js"
+    },
+    "./error": {
+      "types": "./error.d.ts",
+      "default": "./error.js"
+    },
+    "./script": {
+      "types": "./script.d.ts",
+      "default": "./script.js"
+    },
+    "./server": {
+      "types": "./server.d.ts",
+      "default": "./server.js"
+    },
+    "./head": {
+      "types": "./head.d.ts",
+      "default": "./head.js"
+    },
+    "./image": {
+      "types": "./image.d.ts",
+      "default": "./image.js"
+    },
+    "./link": {
+      "types": "./link.d.ts",
+      "default": "./link.js"
+    },
+    "./router": {
+      "types": "./router.d.ts",
+      "default": "./router.js"
+    },
+    "./amp": {
+      "types": "./amp.d.ts",
+      "default": "./amp.js"
+    },
+    "./types/index.d.ts": "./types/index.d.ts",
+    "./types/global.d.ts": "./types/global.d.ts",
+    "./image-types/global.d.ts": "./image-types/global.d.ts",
+    "./package.json": "./package.json",
+    "./*": "./*"
+  },
   "files": [
     "dist",
     "app.js",
