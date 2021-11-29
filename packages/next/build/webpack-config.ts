@@ -1744,6 +1744,7 @@ export default async function getBaseWebpackConfig(
     const hasCustomSvg = rules.some(
       (rule) =>
         rule.loader !== 'next-image-loader' &&
+        !('resourceQuery' in rule) &&
         'test' in rule &&
         rule.test instanceof RegExp &&
         rule.test.test('.svg')
